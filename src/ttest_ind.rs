@@ -1,4 +1,3 @@
-// use rayon::prelude::*;
 use statrs::distribution::{StudentsT, ContinuousCDF};
 
 pub fn ttest_ind(a: &[f64], b: &[f64], equal_var: bool, alternative: &str) -> (f64, f64) {

@@ -1,10 +1,10 @@
 use std::time::Instant;
 use std::io::Read;
-use npy::NpyData;
 use std::fs::File;
 use std::error::Error;
+use npy::NpyData;
 use csv::Writer;
-use indicatif::{ProgressBar, ProgressStyle};  // Import indicatif for progress bar
+use indicatif::{ProgressBar, ProgressStyle};
 
 mod ttest_ind;
 
