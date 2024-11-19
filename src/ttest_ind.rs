@@ -1,15 +1,15 @@
-use rayon::prelude::*;
+// use rayon::prelude::*;
 use statrs::distribution::{StudentsT, ContinuousCDF};
 
 pub fn ttest_ind(a: &[f64], b: &[f64], equal_var: bool, alternative: &str) -> (f64, f64) {
     let n1 = a.len() as f64;
     let n2 = b.len() as f64;
 
-    let mean1 = a.par_iter().sum::<f64>() / n1;
-    let mean2 = b.par_iter().sum::<f64>() / n2;
+    let mean1 = a.iter().sum::<f64>() / n1;
+    let mean2 = b.iter().sum::<f64>() / n2;
 
-    let var1 = a.par_iter().map(|x| (x - mean1).powi(2)).sum::<f64>() / (n1 - 1.0);
-    let var2 = b.par_iter().map(|x| (x - mean2).powi(2)).sum::<f64>() / (n2 - 1.0);
+    let var1 = a.iter().map(|x| (x - mean1).powi(2)).sum::<f64>() / (n1 - 1.0);
+    let var2 = b.iter().map(|x| (x - mean2).powi(2)).sum::<f64>() / (n2 - 1.0);
 
     let t_stat: f64;
     let df: f64;
